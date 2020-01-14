@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'skill-trader'`, () => {
+  it(`should have as title 'eventApp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('skill-trader');
+    expect(app.title).toEqual('eventApp');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('skill-trader app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('eventApp app is running!');
   });
 });

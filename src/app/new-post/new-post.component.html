@@ -1,0 +1,20 @@
+<form [formGroup] ="newPostForm" class="container" (ngSubmit)="onSubmit()">
+  <div>
+    <select type="text" id="category" formControlName="category" class="fadeIn second" name="category" placeholder="category" required>
+      <option value="Technology">Technology</option>
+      <option value="Art">Art</option>
+      <option value="Outdoors">Outdoors</option>
+      <option value="Sports">Sports</option>
+      <option value="Crafts">Crafts</option>
+      <option value="Games">Games</option>
+      <option value="Fitness">Fitness</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+  <div>
+    <input type="text" id="skill" formControlName="skill" class="fadeIn second" name="skill" placeholder="skill" required>
+  </div>
+  <div>
+    <input type="text" id="description" formControlName="description" class="fadeIn second" name="description" placeholder="description" required>
+  </div>
+</form>

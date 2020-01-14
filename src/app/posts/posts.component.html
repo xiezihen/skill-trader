@@ -1,0 +1,25 @@
+<a href="#" routerLink = '/newpost'>New Post</a>
+<div ng-app="app" ng-controller="myctrl" ng-init="init()">
+<table class="table table-striped table-bordered" style="width:100%">
+  <thead>
+    <tr>
+      <th>Item Description</th>
+      <th>User Name</th>
+      <th>Campus</th>
+      <th>Reward</th>
+      <th>Date Lost</th>
+      <th>Date Posted</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr *ngFor = "let post of posts | async">
+  <th>{{post.description}}</th>
+  <th>{{post.userId}}</th>
+  <th>{{post.campus}}</th>
+  <th>{{post.reward| currency}}</th>
+  <th>{{post.dateLost| date}}</th>
+  <th>{{post.date| date}}</th>
+
+</tr>
+</tbody>
+</table>

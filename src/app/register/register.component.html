@@ -1,0 +1,84 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="https://image.flaticon.com/icons/svg/1027/1027671.svg" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+
+    <form [formGroup] ="registerForm" class="container" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class = "form-group col-lg-6 col-xl-6 col-md-6">
+          <input type="text" id="username" formControlName="username" class="fadeIn second" name="username" placeholder="Username" required>
+          <div class="alert alert-danger my-alert" *ngIf =
+          "registerForm.controls.username.invalid && registerForm.controls.username.touched">
+          <div *ngIf = "registerForm.controls.username.errors.required">
+              username is required</div>
+          <div *ngIf = "registerForm.controls.username.errors.minlength">
+              username must be at least 4 characters long</div>
+          <div *ngIf = "registerForm.controls.username.errors.maxlength">
+              username must be at most 20 charaters long</div>
+          <div *ngIf = "registerForm.controls.username.errors.pattern">
+              must only contain letters, numbers and ".-_"</div>
+        </div>
+      </div>
+      <div class = "form-group col-lg-6 col-xl-6 col-md-6">
+          <input type="password" id="password" formControlName="password" class="fadeIn third" name="password" placeholder="Password">
+          <div class="alert alert-danger my-alert" *ngIf =
+          "registerForm.controls.password.invalid && registerForm.controls.password.touched">
+            <div *ngIf = "registerForm.controls.password.errors.required">
+              password is required</div>
+            <div *ngIf = "registerForm.controls.password.errors.minlength">
+                password must be at least 8 characters long</div>
+            <div *ngIf = "registerForm.controls.password.errors.maxlength">
+                password must be at most 20 charaters long</div>
+
+            <div *ngIf = "registerForm.controls.password.errors.pattern && !registerForm.controls.password.errors.minlength">
+              must have an upper-case, lower-case, and a number</div>
+          </div>
+        </div>
+        <div class = "form-group col-lg-6 col-xl-6 col-md-6">
+          <input type="text" id="firstName" formControlName="firstName" class="fadeIn fith" name="firstName" placeholder="First name">
+          <div class="alert alert-danger my-alert" *ngIf = "registerForm.controls.firstName.invalid && registerForm.controls.firstName.touched">
+            <div *ngIf = "registerForm.controls.firstName.errors.pattern"> Must only contain letters</div>
+          </div>
+      </div>
+      <div class = "form-group col-lg-6 col-xl-6 col-md-6">
+          <input type="text" id="lastname" formControlName="lastName" class="fadeIn sixth" name="lastname" placeholder="Last name">
+          <div class="alert alert-danger my-alert" *ngIf = "registerForm.controls.lastName.invalid && registerForm.controls.lastName.touched">
+            <div *ngIf = "registerForm.controls.lastName.errors.pattern"> Must only contain letters</div>
+          </div>
+      </div>
+      <div class = "form-group col-lg-6 col-xl-6 col-md-6">
+        <input type="text" id="email" formControlName="email" class="fadeIn fourth" name="email" placeholder="Email" email>
+        <div class="alert alert-danger my-alert" *ngIf = "registerForm.controls.email.invalid && registerForm.controls.email.touched">
+          <div *ngIf = "registerForm.controls.email.errors.required"> Email is required</div>
+          <div *ngIf = "registerForm.controls.email.errors.email">
+            not in the format id@domain EX:user@gmail.com</div>
+        </div>
+    </div>
+    <div class = "form-group col-lg-6 col-xl-6 col-md-6">
+      <input type="text" id="city" formControlName="city" class="fadeIn fourth" name="city" placeholder="City">
+      <div class="alert alert-danger my-alert" *ngIf = "registerForm.controls.city.invalid && registerForm.controls.city.touched &&
+      registerForm.controls.city.errors.pattern">
+         Must only contain letters
+      </div>
+    </div>
+    </div>
+      <input type="submit" class="fadeIn sixth" value="Register">
+    </form>
+    <div class="alert alert-danger" *ngIf = "submitted">
+      <div *ngIf = "registerForm.invalid">Invalid submission please fix the promted issues</div>
+      <div *ngIf = "doesExist">{{res.message}}</div>
+    </div>
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#" routerLink = '/login'>Already registered?</a>
+    </div>
+
+  </div>
+</div>
+

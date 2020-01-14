@@ -1,0 +1,47 @@
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="https://img.icons8.com/dotty/80/000000/user-shield.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup] ="loginForm" class="container" (ngSubmit)="onSubmit()">
+      <input type="text" id="username" formControlName="username" class="fadeIn second" name="username" placeholder="Username" required>
+      <input type="password" id="password" formControlName="password" class="fadeIn third" name="password" placeholder="Password" required>
+      <input type="submit" class="fadeIn fourth" value="Log In">
+      <div class="alert alert-danger" *ngIf ="notValid">
+        cannot leave username or password empty
+      </div>
+      <div class = "alert alert-danger" *ngIf ="userNotFound">username and password wasn't found</div>
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#" routerLink = '/register'>Not registered?</a>
+    </div>
+
+  </div>
+</div>
+<!--
+<form [formGroup] ="loginForm" class="container" (ngSubmit)="onSubmit()">
+<div>
+<label for ="username">Username</label>
+<input type="text" formControlName="username" name="username" id='username' required>
+</div>
+<div>
+<label for ="password">Password</label>
+<input type="text" formControlName="password" name="password" id='password' required>
+</div>
+<div>
+<button type="submit" >Login</button>
+</div>
+<div class="alert alert-danger" *ngIf ="notValid">
+cannot leave username or password empty
+</div>
+</form>
+
+-->
