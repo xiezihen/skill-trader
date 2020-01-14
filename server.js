@@ -3,7 +3,7 @@ const app = express();
 const path= require('path');
 const port = process.env.PORT ||4200;
 
-app.use(express.static(__dirname + '/skill-trader/eventApp'))
+app.use(express.static(__dirname + '/dist/skill-trader'))
 app.listen(port)
 //PathLocationStrategy
 app.get('/*', (req,res) => {
