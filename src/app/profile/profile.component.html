@@ -6,18 +6,29 @@
       <div class="bg-white shadow rounded overflow-hidden">
           <div class="px-4 pt-0 pb-4 bg-dark">
               <div class="media align-items-end profile-header">
-                  <div class="profile mr-3"><img src="https://www.sackettwaconia.com/wp-content/uploads/default-profile.png" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-dark btn-sm btn-block">Edit profile</a></div>
+                  <div class="profile mr-3"><img src="https://www.sackettwaconia.com/wp-content/uploads/default-profile.png"
+                     alt="..." width="130" class="rounded mb-2 img-thumbnail">
+                  </div>
                   <div class="media-body mb-5 text-white">
-                      <h4 class="mt-0 mb-0">{{currentUser.displayname}}</h4>
-                      <p class="small mb-4"> <i *ngIf ="hasName" class="fa fa-map-marker mr-2">{{currentUser.firstName}}, {{currentUser.lastName}}</i></p>
+                    <h4 class="mt-0 mb-0">{{userInfo.displayname}}</h4>
+                    <p class="small mb-4">
+                      <i *ngIf ="hasName && !basicEdit" class="fa fa-map-marker mr-2">{{userInfo.firstName}}, {{userInfo.lastName}}</i>
+                      <br>
+                      <i *ngIf ="hasCity && !basicEdit" class="fa fa-map-marker mr-2">{{userInfo.city}}</i>
+                    </p>
                   </div>
               </div>
           </div>
 
+
           <div class="bg-light p-4 d-flex justify-content-end text-center">
+            <div class="btn-group" id = "my-btn" >
+              <button (click)="editBasicInfo()" class="btn btn-dark btn-sm">{{editText}}</button>
+              <button *ngIf ="basicEdit" (click)="editBasicCancel()" class="btn  btn-dark btn-sm">cancel</button>
+          </div>
               <ul class="list-inline mb-0">
                   <li class="list-inline-item">
-                      <h5 class="font-weight-bold mb-0 d-block">0</h5><small class="text-muted"> <i class="fa fa-picture-o mr-1"></i>Skills</small>
+                      <h5 class="font-weight-bold mb-0 d-block">{{mySkills.length}}</h5><small class="text-muted"> <i class="fa fa-picture-o mr-1"></i>Skills</small>
                   </li>
                   <li class="list-inline-item">
                       <h5 class="font-weight-bold mb-0 d-block">0</h5><small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i>Posts</small>
@@ -27,21 +38,31 @@
 
           <div class="py-4 px-4">
             <div class="py-4">
-              <h5 class="mb-3">About me</h5>
-              <div class="p-2 bg-light rounded shadow-sm">
-                  <p class="font-italic mb-0">{{currentUser.about}}</p>
+                <h5 class="mb-3 d-inline-flex">About me</h5><p *ngIf = "!aboutEdit" (click)="editAbout()" class="btn btn-link text-muted float-right">edit</p>
+                <p *ngIf = "aboutEdit" (click)="submitAbout()" class="btn btn-link text-muted float-right">submit</p>
+                <p *ngIf = "aboutEdit" (click)="editAboutCancel()" class="btn btn-link text-muted float-right">cancel</p>
+                <div class="p-2 bg-light rounded shadow-sm">
+                  <p *ngIf ="!aboutEdit" class="font-italic mb-0">{{userInfo.about}}</p>
+                  <textarea type= "text" *ngIf = "aboutEdit" [(ngModel)]="newAbout" class="form-control m-auto b-auto"></textarea>
                   <ul class="list-inline small text-muted mt-3 mb-0">
                   </ul>
               </div>
             </div>
               <div class="d-flex align-items-center justify-content-between mb-3">
-                  <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
+                  <h5 class="mb-0">Skills</h5><a href="#" (click)="edit()" class="btn btn-link text-muted">edit</a>
               </div>
               <div class="row">
-                  <div class="col-lg-6 mb-2 pr-lg-1"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294928/nicole-honeywill-546848-unsplash_ymprvp.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
-                  <div class="col-lg-6 mb-2 pl-lg-1"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294927/dose-juice-1184444-unsplash_bmbutn.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
-                  <div class="col-lg-6 pr-lg-1 mb-2"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294926/cody-davis-253925-unsplash_hsetv7.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
-                  <div class="col-lg-6 pl-lg-1"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294928/tim-foster-734470-unsplash_xqde00.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
+                <div class ="col-6">
+                  <div>Experienced Skills</div>
+                    <ul>
+                      <li *ngFor = "let skill of mySkills">
+                        {{skill.category}}: {{skill.skill}}
+                      </li>
+                    </ul>
+                </div>
+                <div class ="col-6">
+                  <div>Skills I Want to Learn</div>
+                </div>
               </div>
               <div class="py-4">
                   <h5 class="mb-3">Recent posts</h5>
@@ -69,12 +90,12 @@
     </div>
     <div class="col-md-6 details">
       <blockquote>
-        <h5>{{currentUser.username}}</h5>
+        <h5>{{userInfo.username}}</h5>
         <small><cite title="Source Title">Chicago, United States of America  <i class="icon-map-marker"></i></cite></small>
       </blockquote>
       <p>
-        {{currentUser.email}} <br>
-        {{currentUser.firstName}}, {{currentUser.lastName}}
+        {{userInfo.email}} <br>
+        {{userInfo.firstName}}, {{userInfo.lastName}}
       </p>
     </div>
   </div>

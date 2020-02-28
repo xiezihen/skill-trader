@@ -27,6 +27,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
+    "jwt-decode": "^2.2.0",
     "ng-bootstrap": "^1.6.3",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.3",

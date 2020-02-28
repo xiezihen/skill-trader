@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
-  apiUrl: 'https://skilltrader-api.herokuapp.com'
+  production: false,
+  apiUrl: 'http://localhost:3000'
 };
 
 /*

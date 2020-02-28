@@ -17,6 +17,11 @@ body {
   min-height: 100vh;
 }
 
+.btn-group {
+  margin-right: 45%;
+
+}
+
 /*
 .container{
   padding:5%;

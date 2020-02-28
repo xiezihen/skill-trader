@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User} from '../_models/User';
+import { UserInfo} from '../_models/UserInfo';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  user: User;
+  user: UserInfo;
   res: Response;
   submitted: boolean;
   formGroup: any;

@@ -19,7 +19,7 @@
 
       <div *ngIf="loggedIn()">
       <li ngbDropdown class="nav-item dropdown">
-        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{currentUser.displayname}}</a>
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{currentUserInfo.displayname}}</a>
         <div ngbDropdownMenu  class="dropdown-menu" aria-labelledby="dropdown01">
           <a ngbDropdownItem class="dropdown-item" href="#" routerLink ='/profile'>Profile</a>
           <a ngbDropdownItem class="dropdown-item" href="#">Settings</a>
